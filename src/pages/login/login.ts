@@ -11,10 +11,10 @@ import { TabsPage } from '../tabs/tabs';
 
 @IonicPage()
 @Component({
-  selector: 'page-home2',
-  templateUrl: 'home2.html',
+  selector: 'page-login',
+  templateUrl: 'login.html',
 })
-export class Home2Page {
+export class LoginPage {
 
   //@ViewChild('email') uname;
   //@ViewChild('password') password;
@@ -24,7 +24,7 @@ export class Home2Page {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad Home2Page');
+    console.log('ionViewDidLoad LoginPage');
   }
 
   signIn(){
