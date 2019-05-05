@@ -1,4 +1,4 @@
-import { LoginPage } from './../pages/home2/login';
+import { LoginPage } from '../pages/login/login';
 import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
