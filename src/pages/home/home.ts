@@ -18,7 +18,6 @@ export class HomePage {
     
   }
 
-
   ionViewDidLoad(){
     // reference nanti asdasfasvasdasvsadbafdb diganti sama uid
     var dbref = firebase.database().ref("/asdasfasvasdasvsadbafdb/buku");
@@ -36,23 +35,6 @@ export class HomePage {
 
   Logout(){
     this.navCtrl.push(LoginPage);
-    
-
-
-  ionViewDidLoad(){
-    // reference nanti asdasfasvasdasvsadbafdb diganti sama uid
-    var dbref = firebase.database().ref("/asdasfasvasdasvsadbafdb/buku");
-    dbref.on('value', snapshot => {
-      // kosongin dulu arraynya, biar ga nimpa di view
-      this.listBuku = [];
-      // masukin setiap value dari asdasfasvasdasvsadbafdb/buku ke array listBuku
-      snapshot.forEach(buku => {
-        this.listBuku.push(buku.val());
-        console.log(buku.val());
-        return false;
-      });
-    });
-
   }
 
 }

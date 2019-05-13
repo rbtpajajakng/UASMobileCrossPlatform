@@ -27,10 +27,7 @@ import {AngularFireAuthModule} from 'angularfire2/auth';
     ContactPage,
     HomePage,
     LoginPage,
-
     RegisterPage,
-
-
     TabsPage
   ],
   imports: [
@@ -46,9 +43,7 @@ import {AngularFireAuthModule} from 'angularfire2/auth';
     ContactPage,
     HomePage,
     LoginPage,
-
     RegisterPage,
-
     TabsPage
   ],
   providers: [
