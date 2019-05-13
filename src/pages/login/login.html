@@ -1,3 +1,6 @@
+
+<ion-content text-center>
+
 <!--
   Generated template for the Home2Page page.
 
@@ -7,10 +10,28 @@
 
 <ion-content text-center>
     <div class="bg">
+
         <div class="head" text-center>
             <h1>This MY Library</h1>
             <h5>Sharing Book & Make New Friend</h5>
         </div>
+        
+            <br>
+            <ion-item>
+                <ion-label floating>Email</ion-label>
+                <ion-input type="text" [(ngModel)]="email"></ion-input>
+            </ion-item>
+
+            <ion-item>
+                <ion-label floating>Password</ion-label>
+                <ion-input type="password" [(ngModel)]="password"></ion-input>
+            </ion-item>
+           
+           <button ion-button block (click)="Login(email,password)">Sign In</button>
+
+           <button ion-button block (click)="Register()">Register</button> 
+           
+
         <div class="inputs">
             <br>
             <ion-item>
@@ -45,4 +66,5 @@
             </div>
         </div>
     </div>
+
 </ion-content>
