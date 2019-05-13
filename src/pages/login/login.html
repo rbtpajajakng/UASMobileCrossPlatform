@@ -1,4 +1,16 @@
+
 <ion-content text-center>
+
+<!--
+  Generated template for the Home2Page page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+<ion-content text-center>
+    <div class="bg">
+
         <div class="head" text-center>
             <h1>This MY Library</h1>
             <h5>Sharing Book & Make New Friend</h5>
@@ -19,4 +31,40 @@
 
            <button ion-button block (click)="Register()">Register</button> 
            
+
+        <div class="inputs">
+            <br>
+            <ion-item>
+                <ion-label fixed>Email</ion-label>
+                <ion-input type="text"></ion-input>
+            </ion-item>
+            <ion-item class="pass">
+                <ion-label fixed>Password</ion-label>
+                <ion-input type="password"></ion-input>
+            </ion-item>
+            <button ion-button block (click)="signIn()">Sign In</button>
+            <!-- <button ion-button block>Register</button> -->
+            <br>
+            Or Sign In with:
+            <!-- <div class="fb" text-center>
+                <ion-icon name="logo-facebook" text-center></ion-icon>Login/Signup with FACEBOOK
+            </div> -->
+            <ion-grid>
+                <ion-row>
+                  <ion-col col-16>
+                    <button ion-button icon-only block class="btn-gplus">
+                      <ion-icon name="logo-googleplus"></ion-icon>
+                    </button>
+                  </ion-col>
+                </ion-row>
+            </ion-grid>
+            <br>
+
+            <!-- buat signup -->
+            <div text-center margin-top>
+                <span ion-text color="secondary">Don't have an account? <strong>Sign up</strong></span>
+            </div>
+        </div>
+    </div>
+
 </ion-content>

@@ -4,8 +4,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler, Config } from 'ionic-angular';
 import { MyApp } from './app.component';
 
-import { Home2Page } from '../pages/home2/home2'
-
 import { AboutPage } from '../pages/about/about';
 import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
@@ -29,7 +27,10 @@ import {AngularFireAuthModule} from 'angularfire2/auth';
     ContactPage,
     HomePage,
     LoginPage,
+
     RegisterPage,
+
+
     TabsPage
   ],
   imports: [
@@ -45,7 +46,9 @@ import {AngularFireAuthModule} from 'angularfire2/auth';
     ContactPage,
     HomePage,
     LoginPage,
+
     RegisterPage,
+
     TabsPage
   ],
   providers: [

@@ -1,10 +1,12 @@
 import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { TabsPage } from '../tabs/tabs';
+
 import { User } from '../../models/user';
 import firebase from 'firebase';
 import{ AngularFireAuth} from 'angularfire2/auth';
 import { RegisterPage } from '../register/register';
+
 
 /**
  * Generated class for the Home2Page page.
@@ -20,15 +22,24 @@ import { RegisterPage } from '../register/register';
 })
 export class LoginPage {
 
+
   //user = {} as User;
  
 
   constructor(private afAuth: AngularFireAuth, public navCtrl: NavController, public navParams: NavParams, public alertCtrl :AlertController) {
+
+  //@ViewChild('email') uname;
+  //@ViewChild('password') password;
+
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl :AlertController) {
+
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad LoginPage');
   }
+
 
   //Login(email,password){
     //firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
@@ -59,6 +70,18 @@ export class LoginPage {
 
     Register(){
       this.navCtrl.push(RegisterPage);
+
+  signIn(){
+    //if(this.uname.value == "admin" && this.password.value == "admin"){
+      //  let alert = this.alertCtrl.create({
+        //  title : 'Successfully Login',
+          //message: 'You success login 100% and join with many book',
+          //buttons: ['OK']
+        //});
+        //alert.present();
+        this.navCtrl.push(TabsPage);
+      //}
+
     }
   }
 
