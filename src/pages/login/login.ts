@@ -1,18 +1,10 @@
 import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { TabsPage } from '../tabs/tabs';
-
 import { User } from '../../models/user';
 import firebase from 'firebase';
 import{ AngularFireAuth} from 'angularfire2/auth';
 import { RegisterPage } from '../register/register';
-
-/**
- * Generated class for the Home2Page page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
@@ -22,7 +14,6 @@ import { RegisterPage } from '../register/register';
 export class LoginPage {
 
   //user = {} as User;
- 
 
   constructor(private afAuth: AngularFireAuth, public navCtrl: NavController, public navParams: NavParams, public alertCtrl :AlertController) {
   }
@@ -43,7 +34,6 @@ export class LoginPage {
   
     //}
 
-
     async Login(email: string, password: string) {
       try {
         const result = await this.afAuth.auth.signInWithEmailAndPassword(email, password);
@@ -57,7 +47,6 @@ export class LoginPage {
       
     }
    
-
     Register(){
       this.navCtrl.push(RegisterPage);
     }
