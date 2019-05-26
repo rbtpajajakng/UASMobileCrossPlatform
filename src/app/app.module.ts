@@ -1,3 +1,4 @@
+import { Camera } from '@ionic-native/camera';
 import { LoginPage } from '../pages/login/login';
 import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -48,7 +49,8 @@ import {AngularFireAuthModule} from 'angularfire2/auth';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    UserProvider
+    UserProvider,
+    Camera
   ]
 })
 export class AppModule {}

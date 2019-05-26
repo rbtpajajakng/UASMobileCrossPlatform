@@ -1,11 +1,27 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      About
+      Library
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-
+  <ion-item>
+    <ion-label >Judul</ion-label>
+    <ion-input type="text" [(ngModel)]="judul"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label >Pengarang</ion-label>
+    <ion-input type="text" [(ngModel)]="pengarang"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label >Tahun Terbit</ion-label>
+    <ion-datetime displayFormat="YYYY" pickerFormat="YYYY" [(ngModel)]="tahun"></ion-datetime>
+  </ion-item>
+  <ion-item>
+    <ion-label >Gambar</ion-label>
+    <ion-input type="text" [(ngModel)]="gambar"></ion-input>
+  </ion-item>
+  <button ion-button block (click)="addBook(judul, pengarang, tahun, gambar)">Tambah Buku</button>
 </ion-content>
