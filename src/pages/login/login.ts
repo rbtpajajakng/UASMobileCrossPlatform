@@ -1,6 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { TabsPage } from '../tabs/tabs';
+
 import { User } from '../../models/user';
 import firebase from 'firebase';
 import{ AngularFireAuth} from 'angularfire2/auth';
@@ -61,5 +62,3 @@ export class LoginPage {
       this.navCtrl.push(RegisterPage);
     }
   }
-
-
