@@ -59,11 +59,11 @@
 <ion-content padding>
   <ion-list>
     <ion-item *ngFor="let buku of listBuku">
-      <img [src]="buku.img">
+      <img [src]="buku.gambar">
       <p>Judul: {{buku.judul}}</p>
       <p>Pengarang: {{buku.pengarang}}</p>
       <p>Tahun Terbit: {{buku.tahun}}</p>
-      <p *ngIf="buku.pinjam; else notShow">Bisa dipinjam</p>
+      <p *ngIf="!buku.pinjam; else notShow">Bisa dipinjam</p>
       <ng-template #notShow><p>Sudah dipinjam</p></ng-template>
     </ion-item>
   </ion-list>
