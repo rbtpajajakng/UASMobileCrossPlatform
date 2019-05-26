@@ -18,8 +18,6 @@ import {AngularFireModule} from 'angularfire2';
 import {AngularFireAuthModule} from 'angularfire2/auth';
 //import { FIREBASE_CREDENTIALS } from "./firebase.credentials";
 
-
-
 @NgModule({
   declarations: [
     MyApp,
