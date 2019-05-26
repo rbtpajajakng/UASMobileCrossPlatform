@@ -4,8 +4,6 @@ import firebase  from 'firebase';
 
 import {LoginPage} from '../login/login'
 
-
-
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
@@ -36,5 +34,4 @@ export class HomePage {
   Logout(){
     this.navCtrl.push(LoginPage);
   }
-
 }

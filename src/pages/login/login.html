@@ -1,6 +1,3 @@
-
-<ion-content text-center>
-
 <!--
   Generated template for the Home2Page page.
 
@@ -9,23 +6,31 @@
 -->
 
 <ion-content text-center>
-    <div class="bg">
-        <div class="head" text-center>
-            <h1>This MY Library</h1>
-            <h5>Sharing Book & Make New Friend</h5>
-        </div>
+    <div class="head" text-center>
         <br>
-        <ion-item>
-            <ion-label floating>Email</ion-label>
-            <ion-input type="text" [(ngModel)]="email"></ion-input>
-        </ion-item>
-        <ion-item>
-            <ion-label floating>Password</ion-label>
-            <ion-input type="password" [(ngModel)]="password"></ion-input>
-        </ion-item>
+        <br>
+        <!-- logo nya masih harus diganti, ini buat sementara aja -->
+        
+        <h1>Freedom Library</h1>
+        <img width="90px" height="90px" src="assets/imgs/Untitled-1.png">
+        <h5>Sharing Book & Make New Friend</h5>
+        
+    </div>
+        
+    <br>
+    <ion-item>
+        <ion-label >Email</ion-label>
+        <ion-input type="text" [(ngModel)]="email"></ion-input>
+    </ion-item>
 
+    <ion-item>
+        <ion-label >Password</ion-label>
+        <ion-input type="password" [(ngModel)]="password"></ion-input>
+    </ion-item>
+        
+    <div padding>
         <button ion-button block (click)="Login(email,password)">Sign In</button>
-        <button ion-button block (click)="Register()">Register</button> 
+        <button ion-button block (click)="Register()">Register</button>
     </div>
 
 </ion-content>
