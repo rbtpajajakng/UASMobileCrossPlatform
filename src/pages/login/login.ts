@@ -15,7 +15,8 @@ export class LoginPage {
 
   //user = {} as User;
 
-  constructor(private afAuth: AngularFireAuth, public navCtrl: NavController, public navParams: NavParams, public alertCtrl :AlertController) {
+  constructor(private afAuth: AngularFireAuth, public navCtrl: NavController, public navParams: NavParams, 
+    public alertCtrl :AlertController) {
   }
 
   ionViewDidLoad() {
@@ -42,7 +43,13 @@ export class LoginPage {
         }  
       }
       catch (e) {
-        console.error(e);
+          
+          let alert = this.alertCtrl.create({
+            title: 'Error',
+            subTitle: "E-mail dan Password tidak sesuai",
+            buttons: ['OK']
+          });
+          alert.present();
       }
       
     }
@@ -50,4 +57,6 @@ export class LoginPage {
     Register(){
       this.navCtrl.push(RegisterPage);
     }
+
+    
   }

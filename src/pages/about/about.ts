@@ -95,6 +95,22 @@ export class AboutPage {
     });
   }
 
+  // takePic(){
+  //   const options:CameraOptions = {
+  //     quality: 100,
+  //     destinationType: this.camera.DestinationType.FILE_URI,
+  //     encodingType: this.camera.EncodingType.JPEG,
+  //     mediaType: this.camera.MediaType.PICTURE
+  //   }
+
+  //   this.camera.getPicture(options).then((ImageData)=>{
+  //     this.photo = "data:image/jpeg;base64,"+ImageData;
+  //     console.log(this.photo);
+  //   }, (err)=>{
+  //     console.log(err);
+  //   });
+  // }
+
   addBook(judul:String, pengarang:String, tahun?:String, gambar?:String){
     var db = firebase.database();
     var uid = firebase.auth().currentUser.uid;
