@@ -1,3 +1,4 @@
+import { BookPage } from './../book/book';
 import { Component } from '@angular/core';
 import { NavController, AlertController, App } from 'ionic-angular';
 import firebase  from 'firebase';
@@ -43,5 +44,9 @@ export class HomePage {
       });
       alert.present();
     });
+  }
+
+  toDetail(gambar, judul, pengarang, tahun, pinjam){
+    this.navCtrl.push(BookPage, {gambar: gambar, judul: judul, pengarang: pengarang, tahun: tahun, pinjam:pinjam});
   }
 }
