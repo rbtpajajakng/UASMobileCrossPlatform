@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { User } from '../../models/user';
 import firebase from 'firebase';
 import { TabsPage } from '../tabs/tabs';
@@ -23,7 +23,8 @@ export class RegisterPage {
 
   user = {} as User;
 
-  constructor(private afAuth: AngularFireAuth,public navCtrl: NavController, public navParams: NavParams) {
+  constructor(private afAuth: AngularFireAuth,public navCtrl: NavController, public navParams: NavParams,
+    public alertCtrl :AlertController) {
   }
 
   ionViewDidLoad() {
@@ -51,9 +52,18 @@ export class RegisterPage {
           this.navCtrl.push(LoginPage);
         }
       } catch (e) {
-        console.error(e);
+        let alert = this.alertCtrl.create({
+          title: 'Error',
+          subTitle: "Ada yang " + e,
+          buttons: ['OK']
+        });
+        alert.present();
       }
       
+    }
+
+    Cancel(){
+      this.navCtrl.popToRoot();
     }
 
 }
