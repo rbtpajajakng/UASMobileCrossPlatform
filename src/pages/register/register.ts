@@ -62,6 +62,10 @@ export class RegisterPage {
       
     }
 
+    Cancel(){
+      this.navCtrl.popToRoot();
+    }
+
 }
 
 
