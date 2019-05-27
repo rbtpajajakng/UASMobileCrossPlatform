@@ -64,16 +64,21 @@
 <ion-content padding>
   <ion-list>
     <ion-item *ngFor="let buku of listBuku">
-      <ion-col>
-        <img style="left: 0cm" [src]="buku.gambar">
-      </ion-col>
-      <ion-col>
-        <p text-right>Judul: {{buku.judul}}</p>
-        <p text-right>Pengarang: {{buku.pengarang}}</p>
-        <p text-right>Tahun Terbit: {{buku.tahun}}</p>
-        <p text-right *ngIf="!buku.pinjam; else notShow">Bisa dipinjam</p>
-        <ng-template #notShow><p text-right right>Sudah dipinjam</p></ng-template>
-      </ion-col>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <img class="img" width="80" heigth="80" [src]="buku.gambar">
+        </ion-col>
+        <ion-col>
+            <p text-left>Judul: {{buku.judul}}</p>
+            <p text-left>Pengarang: {{buku.pengarang}}</p>
+            <p text-left>Tahun Terbit: {{buku.tahun}}</p>
+            <p text-left *ngIf="!buku.pinjam; else notShow">Bisa dipinjam</p>
+            <ng-template #notShow><p text-right right>Sudah dipinjam</p></ng-template>
+        </ion-col>
+      </ion-row>
+    </ion-grid>  
+    
       </ion-item>    
   </ion-list>
 </ion-content>
