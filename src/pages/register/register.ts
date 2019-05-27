@@ -42,13 +42,28 @@ export class RegisterPage {
       //this.navCtrl.push(TabsPage);
     //});
 
-    async Register(email: string, password: string) {
+    async Register(email: string, password: string, username:string) {
       try {
         const result = await this.afAuth.auth.createUserWithEmailAndPassword(
          email,
          password
         );
         if (result) {
+          var db = firebase.database();
+          var uid = firebase.auth().currentUser.uid;
+          db.ref("/user/"+uid).set({
+            username: username,
+            email: firebase.auth().currentUser.email
+          }, (error) => {
+            if(error){
+              var alert = this.alertCtrl.create({
+                title: "Error",
+                subTitle: "Maaf Kamu Tidak Terdaftar T_T",
+                buttons: ['OK']
+              });
+              alert.present();
+            }
+          });
           this.navCtrl.push(LoginPage);
         }
       } catch (e) {
@@ -60,6 +75,10 @@ export class RegisterPage {
         alert.present();
       }
       
+    }
+
+    Cancel(){
+      this.navCtrl.push(LoginPage);
     }
 
 }

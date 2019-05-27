@@ -10,7 +10,7 @@ import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 
-
+import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { RegisterPage } from '../pages/register/register';
@@ -27,7 +27,8 @@ import {AngularFireAuthModule} from 'angularfire2/auth';
     HomePage,
     LoginPage,
     RegisterPage,
-    TabsPage
+    TabsPage,
+    
   ],
   imports: [
     BrowserModule,
@@ -50,7 +51,9 @@ import {AngularFireAuthModule} from 'angularfire2/auth';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     UserProvider,
-    Camera
+    Camera,
+    
+   
   ]
 })
 export class AppModule {}
