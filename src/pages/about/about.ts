@@ -1,7 +1,8 @@
 import  firebase  from 'firebase/app';
 import { Component } from '@angular/core';
-import { NavController, AlertController } from 'ionic-angular';
+import { NavController, AlertController, App } from 'ionic-angular';
 import { Camera, CameraOptions } from '@ionic-native/camera';
+import { LoginPage } from '../login/login';
 
 @Component({
   selector: 'page-about',
@@ -10,9 +11,26 @@ import { Camera, CameraOptions } from '@ionic-native/camera';
 export class AboutPage {
 
   photo:any;
+  judul:any;
 
-  constructor(public navCtrl: NavController, public alertCtrl: AlertController, private camera:Camera) {
+  constructor(public navCtrl: NavController, public alertCtrl: AlertController, private camera:Camera, private app:App) {
 
+  }
+
+  takePic(){
+    const options:CameraOptions = {
+      quality: 100,
+      destinationType: this.camera.DestinationType.FILE_URI,
+      encodingType: this.camera.EncodingType.JPEG,
+      mediaType: this.camera.MediaType.PICTURE
+    }
+
+    this.camera.getPicture(options).then((ImageData)=>{
+      this.photo = "data:image/jpeg;base64,"+ImageData;
+      console.log(this.photo);
+    }, (err)=>{
+      console.log(err);
+    });
   }
 
   // takePic(){
@@ -64,6 +82,19 @@ export class AboutPage {
         });
         alert.present();
       }
+    });
+  }
+
+  logout(){
+    firebase.auth().signOut().then(()=>{
+      this.app.getRootNav().setRoot(LoginPage);
+    }).catch((err)=>{
+      var alert = this.alertCtrl.create({
+        title: "Ups...",
+        subTitle: "Aduh, lagi ngak bisa logout nih! "+err,
+        buttons: ['OK']
+      });
+      alert.present();
     });
   }
 }

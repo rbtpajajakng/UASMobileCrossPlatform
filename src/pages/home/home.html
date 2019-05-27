@@ -1,6 +1,11 @@
 <ion-header>
   <ion-navbar>
     <ion-title>Home</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-onl (click)="logout()">
+        <ion-icon name="log-out"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
@@ -67,7 +72,10 @@
       <ng-template #notShow><p>Sudah dipinjam</p></ng-template>
     </ion-item>
   </ion-list>
+<<<<<<< HEAD
 
   <button ion-button block (click)= "Logout()">Log out</button>
+=======
+>>>>>>> b4537b1e90cd032aaeda534908745ccceb653436
 
 </ion-content>
