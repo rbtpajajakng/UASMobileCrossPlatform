@@ -1,8 +1,11 @@
+import { FileChooser } from '@ionic-native/file-chooser';
 import  firebase  from 'firebase/app';
 import { Component } from '@angular/core';
 import { NavController, AlertController, App } from 'ionic-angular';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 import { LoginPage } from '../login/login';
+import { File, Entry, FileError } from '@ionic-native/file';
+import { ImagePicker, ImagePickerOptions } from '@ionic-native/image-picker';
 
 @Component({
   selector: 'page-about',
@@ -11,25 +14,84 @@ import { LoginPage } from '../login/login';
 export class AboutPage {
 
   photo:any;
-  judul:any;
 
-  constructor(public navCtrl: NavController, public alertCtrl: AlertController, private camera:Camera, private app:App) {
+  judul:any;
+  gambar:any;
+  pengarang:any;
+  tahun:any;
+
+  constructor(public navCtrl: NavController, public alertCtrl: AlertController, private file:File, private camera:Camera, private filechooser:FileChooser, private app:App, private imgPicker:ImagePicker) {
 
   }
 
-  takePic(){
+  openCamera(){
     const options:CameraOptions = {
       quality: 100,
       destinationType: this.camera.DestinationType.FILE_URI,
       encodingType: this.camera.EncodingType.JPEG,
-      mediaType: this.camera.MediaType.PICTURE
+      mediaType: this.camera.MediaType.PICTURE,
     }
-
+    
     this.camera.getPicture(options).then((ImageData)=>{
       this.photo = "data:image/jpeg;base64,"+ImageData;
+      const currentName = ImageData.replace(/^.*[\\\/]/,'');
+      const path = ImageData.replace(/[^\/]*$/,'');
+      this.file.moveFile(path, currentName, this.file.dataDirectory, currentName)
+      .then((data:Entry)=>{
+        this.gambar = data.nativeURL;
+        this.camera.cleanup();
+      })
+      .catch((err: FileError)=>{
+        this.gambar = "";
+        this.camera.cleanup();
+        var alert = this.alertCtrl.create({
+          title: "Hmmm...",
+          subTitle: "Sepertinya ada yang salah...\n "+err,
+          buttons: ['OK']
+        });
+        alert.present();
+      });
       console.log(this.photo);
     }, (err)=>{
-      console.log(err);
+      var alert = this.alertCtrl.create({
+        title: "Hmmm...",
+        subTitle: "Sepertinya ada yang salah...\n "+err,
+        buttons: ['OK']
+      });
+      alert.present();
+    });
+  }
+
+  openGallery(){
+    // this.filechooser.open()
+    // .then((uri) => {
+    //   var alert = this.alertCtrl.create({
+    //     title: "Hmmm...",
+    //     subTitle: uri,
+    //     buttons: ['OK']
+    //   });
+    //   alert.present();
+    // })
+    // .catch((err)=>{
+    //   var alert = this.alertCtrl.create({
+    //     title: "Hmmm...",
+    //     subTitle: "Sepertinya ada yang salah...\n "+err,
+    //     buttons: ['OK']
+    //   });
+    //   alert.present();
+    // });
+    const galleryOptions:ImagePickerOptions = {
+      maximumImagesCount: 1
+    }
+    this.imgPicker.getPictures(galleryOptions).then((res)=>{
+      this.gambar = res;
+    }).catch((err)=>{
+      var alert = this.alertCtrl.create({
+        title: "Hmmm...",
+        subTitle: "Sepertinya ada yang salah...\n "+err,
+        buttons: ['OK']
+      });
+      alert.present();
     });
   }
 
@@ -53,15 +115,18 @@ export class AboutPage {
       if(error){
         var alert = this.alertCtrl.create({
           title: "Error",
-          subTitle: "Ups, bukunya ngak bisa dimasukin ke database",
+          subTitle: "Ups, bukunya ngak bisa dimasukin ke database\n"+error,
           buttons: ['OK']
         });
         alert.present();
       } else{
-        judul = "";
+        this.judul = "";
+        this.pengarang = "";
+        this.tahun = "";
+        this.gambar = "";
         var alert = this.alertCtrl.create({
-          title: "Berhasil!",
-          subTitle: "Noice, koleksi buku kamu bertambah!",
+          title: "Noice!",
+          subTitle: "Koleksi buku kamu bertambah!",
           buttons: ['OK']
         });
         alert.present();
