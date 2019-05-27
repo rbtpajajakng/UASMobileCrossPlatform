@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import firebase  from 'firebase';
-import {LoginPage} from '../login/login'
 
+import {LoginPage} from '../login/login'
 
 @Component({
   selector: 'page-home',
@@ -18,7 +18,8 @@ export class HomePage {
 
   ionViewDidLoad(){
     // reference nanti asdasfasvasdasvsadbafdb diganti sama uid
-    var dbref = firebase.database().ref("/asdasfasvasdasvsadbafdb/buku");
+    var uid = firebase.auth().currentUser.uid;
+    var dbref = firebase.database().ref("/buku/"+uid);
     dbref.on('value', snapshot => {
       // kosongin dulu arraynya, biar ga nimpa di view
       this.listBuku = [];
@@ -33,7 +34,5 @@ export class HomePage {
 
   Logout(){
     this.navCtrl.push(LoginPage);
-    
   }
-
 }

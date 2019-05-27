@@ -6,13 +6,6 @@ import firebase from 'firebase';
 import{ AngularFireAuth} from 'angularfire2/auth';
 import { RegisterPage } from '../register/register';
 
-/**
- * Generated class for the Home2Page page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-
 @IonicPage()
 @Component({
   selector: 'page-login',
@@ -21,9 +14,9 @@ import { RegisterPage } from '../register/register';
 export class LoginPage {
 
   //user = {} as User;
- 
 
-  constructor(private afAuth: AngularFireAuth, public navCtrl: NavController, public navParams: NavParams, public alertCtrl :AlertController) {
+  constructor(private afAuth: AngularFireAuth, public navCtrl: NavController, public navParams: NavParams, 
+    public alertCtrl :AlertController) {
   }
 
   ionViewDidLoad() {
@@ -42,7 +35,6 @@ export class LoginPage {
   
     //}
 
-
     async Login(email: string, password: string) {
       try {
         const result = await this.afAuth.auth.signInWithEmailAndPassword(email, password);
@@ -51,15 +43,20 @@ export class LoginPage {
         }  
       }
       catch (e) {
-        console.error(e);
+          
+          let alert = this.alertCtrl.create({
+            title: 'Error',
+            subTitle: "E-mail dan Password tidak sesuai",
+            buttons: ['OK']
+          });
+          alert.present();
       }
       
     }
    
-
     Register(){
       this.navCtrl.push(RegisterPage);
     }
+
+    
   }
-
-

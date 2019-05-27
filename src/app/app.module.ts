@@ -1,10 +1,9 @@
+import { Camera } from '@ionic-native/camera';
 import { LoginPage } from '../pages/login/login';
 import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler, Config } from 'ionic-angular';
 import { MyApp } from './app.component';
-
-import { Home2Page } from '../pages/home2/home2'
 
 import { AboutPage } from '../pages/about/about';
 import { ContactPage } from '../pages/contact/contact';
@@ -19,8 +18,6 @@ import { UserProvider } from '../providers/user/user';
 import {AngularFireModule} from 'angularfire2';
 import {AngularFireAuthModule} from 'angularfire2/auth';
 //import { FIREBASE_CREDENTIALS } from "./firebase.credentials";
-
-
 
 @NgModule({
   declarations: [
@@ -52,7 +49,8 @@ import {AngularFireAuthModule} from 'angularfire2/auth';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    UserProvider
+    UserProvider,
+    Camera
   ]
 })
 export class AppModule {}
