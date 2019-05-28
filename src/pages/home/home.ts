@@ -1,3 +1,4 @@
+import { BookPage } from './../book/book';
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import firebase  from 'firebase';
@@ -34,5 +35,9 @@ export class HomePage {
 
   Logout(){
     this.navCtrl.push(LoginPage);
+  }
+
+  toDetail(gambar, judul, pengarang, tahun, pinjam){
+    this.navCtrl.push(BookPage, {gambar: gambar, judul: judul, pengarang: pengarang, tahun: tahun, pinjam:pinjam});
   }
 }
