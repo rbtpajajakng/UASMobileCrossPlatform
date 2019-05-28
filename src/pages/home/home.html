@@ -1,33 +1,39 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>Freedom Library</ion-title>
+  <ion-navbar color="header">
+    
+    <ion-title> <br> Freedom Library</ion-title>
     <ion-buttons end>
+      <br>
       <button ion-button icon-only (click)="logout()">
         <ion-icon name="log-out"></ion-icon>
       </button>
     </ion-buttons>
   </ion-navbar>
+
+  <ion-toolbar >
+    <ion-searchbar></ion-searchbar>
+  </ion-toolbar>
+
 </ion-header>
 
 <ion-content padding class="background-home">
-  <ion-list>
+  <ion-list no lines>
+  <ion-card>
+    <ion-card-content>
     <ion-item tappable *ngFor="let buku of listBuku">
       <ion-grid (click)="toDetail(buku.gambar, buku.judul, buku.pengarang, buku.tahun, buku.pinjam)">
-        <ion-row>
-          <ion-col>
-            <img class="img" width="80" height="80" [src]="buku.gambar">
-          </ion-col>
-          <ion-col>
-              <p text-left>Judul: {{buku.judul}}</p>
-              <p text-left>Pengarang: {{buku.pengarang}}</p>
-              <p text-left>Tahun Terbit: {{buku.tahun}}</p>
-              <p text-left *ngIf="!buku.pinjam; else notShow">Bisa dipinjam</p>
-              <ng-template #notShow><p text-right right>Sudah dipinjam</p></ng-template>
-          </ion-col>
-        </ion-row>
+        <ion-card-title>
+          <img class="img" [src]="buku.gambar">
+        </ion-card-title>
+          
+          <p text-left>Judul: {{buku.judul}}</p>
+          <p text-left>Pengarang: {{buku.pengarang}}</p>
+          <p text-left>Tahun Terbit: {{buku.tahun}}</p>
+          <p text-left *ngIf="!buku.pinjam; else notShow">Bisa dipinjam</p>
+          <ng-template #notShow><p text-right right>Sudah dipinjam</p></ng-template>
       </ion-grid>  
     </ion-item>
-  </ion-list>
-
-  
+  </ion-card-content>
+  </ion-card>
+</ion-list>
 </ion-content>

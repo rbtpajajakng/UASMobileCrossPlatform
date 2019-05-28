@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color="header">
     <ion-title>
       Colections Library
     </ion-title>
@@ -14,18 +14,22 @@
 <ion-content class="background-library">
   <ion-card-content>
     <ion-list>
+
       <ion-item>
         <ion-label >Judul</ion-label>
           <ion-input type="text" [(ngModel)]="judul"></ion-input>
         </ion-item>
+
         <ion-item>
           <ion-label >Pengarang</ion-label>
           <ion-input type="text" [(ngModel)]="pengarang"></ion-input>
         </ion-item>
+
         <ion-item>
           <ion-label >Tahun Terbit</ion-label>
           <ion-datetime displayFormat="YYYY" pickerFormat="YYYY" [(ngModel)]="tahun"></ion-datetime>
         </ion-item>
+
         <ion-item>
           <button ion-button (click)="openGallery()">
             <ion-icon name="folder"></ion-icon> File sistem
@@ -35,9 +39,11 @@
           </button>
           <img [src]="gambar">
         </ion-item>
+
         <div padding>
           <button ion-button block (click)="addBook(judul, pengarang, tahun, gambar)">Tambah Buku</button>
         </div>
+        
     </ion-list>
   </ion-card-content>
 </ion-content>
