@@ -1,11 +1,6 @@
 <ion-header>
   <ion-navbar>
     <ion-title>Home</ion-title>
-    <ion-buttons end>
-      <button ion-button icon-only (click)="logout()">
-        <ion-icon name="log-out"></ion-icon>
-      </button>
-    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
@@ -61,24 +56,18 @@
 </ion-menu>
 
 
-<ion-content padding>
+<ion-content class="background-home">
   <ion-list>
     <ion-item *ngFor="let buku of listBuku">
-      <ion-grid>
-        <ion-row>
-          <ion-col>
-            <img class="img" width="80" heigth="80" [src]="buku.gambar">
-        </ion-col>
-        <ion-col>
-            <p text-left>Judul: {{buku.judul}}</p>
-            <p text-left>Pengarang: {{buku.pengarang}}</p>
-            <p text-left>Tahun Terbit: {{buku.tahun}}</p>
-            <p text-left *ngIf="!buku.pinjam; else notShow">Bisa dipinjam</p>
-            <ng-template #notShow><p text-right right>Sudah dipinjam</p></ng-template>
-        </ion-col>
-      </ion-row>
-    </ion-grid>  
-    
-      </ion-item>    
+      <img [src]="buku.gambar">
+      <p>Judul: {{buku.judul}}</p>
+      <p>Pengarang: {{buku.pengarang}}</p>
+      <p>Tahun Terbit: {{buku.tahun}}</p>
+      <p *ngIf="!buku.pinjam; else notShow">Bisa dipinjam</p>
+      <ng-template #notShow><p>Sudah dipinjam</p></ng-template>
+    </ion-item>
   </ion-list>
+
+  <button ion-button block (click)= "Logout()">Log out</button>
+
 </ion-content>
