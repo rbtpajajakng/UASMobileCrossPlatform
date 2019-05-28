@@ -71,6 +71,27 @@
       <p *ngIf="!buku.pinjam; else notShow">Bisa dipinjam</p>
       <ng-template #notShow><p>Sudah dipinjam</p></ng-template>
     </ion-item>
+
+    <ion-item>
+      <ion-input type="text" [(ngModel)]="qrData"></ion-input>
+    </ion-item>
+    <button ion-button (click) = "createCode()">Create Code</button>
+    <button ion-button (click) = "scanCode()">Scan Code</button>
+
+    <ion-card *ngIf="createdCode">
+      <ngx-qrcode [qrc-value]="createdCode"></ngx-qrcode>
+      <ion-card-content>
+        <p>Value: {{ createdCode }}</p>
+      </ion-card-content>
+    </ion-card>
+
+      <ion-card *ngIf="scannedCode">
+          <ion-card-content>
+            Result from Scan: {{ scannedCode }}
+          </ion-card-content>
+      </ion-card>
+
+
   </ion-list>
 
   

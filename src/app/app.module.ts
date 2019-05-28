@@ -11,6 +11,8 @@ import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
+import { NgxQRCodeModule } from 'ngx-qrcode2';
+
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { RegisterPage } from '../pages/register/register';
@@ -34,7 +36,8 @@ import {AngularFireAuthModule} from 'angularfire2/auth';
     BrowserModule,
     IonicModule.forRoot(MyApp),
     AngularFireModule.initializeApp(Config),
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    NgxQRCodeModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -51,6 +54,7 @@ import {AngularFireAuthModule} from 'angularfire2/auth';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     UserProvider,
+    BarcodeScanner,
     Camera,
     
    

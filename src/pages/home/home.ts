@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, AlertController, App } from 'ionic-angular';
+import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 import firebase  from 'firebase';
 
 import {LoginPage} from '../login/login'
@@ -9,10 +10,16 @@ import {LoginPage} from '../login/login'
   templateUrl: 'home.html'
 })
 export class HomePage {
+
+  qrData = null;
+  createdCode = null;
+  scannedCode = null;
+
   // Array buat nampung list-list buku
   public listBuku: Array<any> = [];
 
-  constructor(public navCtrl: NavController, public alertCtrl:AlertController, private app:App) {
+  constructor(public navCtrl: NavController, public alertCtrl:AlertController, private app:App,
+    private barcodeScanner:BarcodeScanner ) {
     
   }
 
@@ -44,4 +51,17 @@ export class HomePage {
       alert.present();
     });
   }
+
+  createCode(){
+    this.createdCode = this.qrData;
+  }
+
+  scanCode(){
+    this.barcodeScanner.scan().then(barcodeData =>{
+      this.scannedCode = barcodeData.text;
+    })
+  }
+
+  
+
 }
