@@ -17,16 +17,20 @@
                 </ion-item>
         
                 <div padding>
-                    <button ion-button block class="marginTop" (click)="Login(email,password)">Login</button>
+                    <button ion-button block (click)="Login(email,password)">Login</button>
                     <button ion-button block (click)="Register()">Register</button>
                 </div>
-            </ion-list>
 
-            <b>OR</b>
-            <button ion-button block color="danger">
-                <ion-icon name="logo-google"></ion-icon>
-                <div>Login with google</div>
-            </button>
+                <b>OR</b>
+
+                <div padding>
+                    <button ion-button block color="danger">
+                        <ion-icon name="logo-google"></ion-icon>
+                        <div>Login with google</div>
+                    </button>
+                </div>
+            </ion-list>
+            
 
         </ion-card-content>
     </ion-card>
