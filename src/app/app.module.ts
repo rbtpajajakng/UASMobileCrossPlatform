@@ -25,6 +25,7 @@ import { RegisterPage } from '../pages/register/register';
 import { UserProvider } from '../providers/user/user';
 import {AngularFireModule} from 'angularfire2';
 import {AngularFireAuthModule} from 'angularfire2/auth';
+import { LocalNotifications } from '@ionic-native/local-notifications';
 //import { FIREBASE_CREDENTIALS } from "./firebase.credentials";
 
 @NgModule({
@@ -66,7 +67,8 @@ import {AngularFireAuthModule} from 'angularfire2/auth';
     File,
     BarcodeScanner,
     ImagePicker,
-    Camera
+    Camera,
+    LocalNotifications
   ]
 })
 export class AppModule {}

@@ -1,7 +1,8 @@
 import { BookPage } from './../book/book';
 import { Component } from '@angular/core';
-import { NavController, AlertController, App } from 'ionic-angular';
+import { NavController, AlertController, App, Platform } from 'ionic-angular';
 import firebase  from 'firebase';
+import { LocalNotifications } from '@ionic-native/local-notifications';
 
 import {LoginPage} from '../login/login'
 
@@ -13,8 +14,14 @@ export class HomePage {
   // Array buat nampung list-list buku
   public listBuku: Array<any> = [];
 
-  constructor(public navCtrl: NavController, public alertCtrl: AlertController, private app:App) {
-    
+  constructor(public navCtrl: NavController, public alertCtrl: AlertController, private app:App, private localNoti: LocalNotifications, private platform: Platform) {
+    this.platform.ready().then(() => {
+      this.localNoti.schedule({
+        id: 1,
+        title: 'Woy!!!!!',
+        text: 'Balikin Bukunya !!'
+      });
+    });
   }
 
   ionViewDidLoad(){
