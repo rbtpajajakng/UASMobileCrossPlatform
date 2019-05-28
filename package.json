@@ -63,7 +63,6 @@
       "cordova-plugin-splashscreen": {},
       "cordova-plugin-ionic-webview": {},
       "cordova-plugin-ionic-keyboard": {},
-      "cordova-plugin-camera": {},
       "cordova-plugin-file": {},
       "cordova-plugin-filechooser": {},
       "cordova-plugin-telerik-imagepicker": {}

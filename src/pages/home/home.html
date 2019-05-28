@@ -9,76 +9,23 @@
   </ion-navbar>
 </ion-header>
 
-<ion-menu side="start" menuId="first">
-  <ion-header>
-    <ion-toolbar color="primary">
-      <ion-title>Start Menu</ion-title>
-    </ion-toolbar>
-  </ion-header>
-  <ion-content>
-    <ion-list>
-      <ion-item>Menu Item</ion-item>
-      <ion-item>Menu Item</ion-item>
-      <ion-item>Menu Item</ion-item>
-      <ion-item>Menu Item</ion-item>
-      <ion-item>Menu Item</ion-item>
-    </ion-list>
-  </ion-content>
-</ion-menu>
-
-<ion-menu side="start" menuId="custom" class="my-custom-menu">
-  <ion-header>
-    <ion-toolbar color="tertiary">
-      <ion-title>Custom Menu</ion-title>
-    </ion-toolbar>
-  </ion-header>
-  <ion-content>
-    <ion-list>
-      <ion-item>Menu Item</ion-item>
-      <ion-item>Menu Item</ion-item>
-      <ion-item>Menu Item</ion-item>
-      <ion-item>Menu Item</ion-item>
-      <ion-item>Menu Item</ion-item>
-    </ion-list>
-  </ion-content>
-</ion-menu>
-
-<ion-menu side="end" type="push">
-  <ion-header>
-    <ion-toolbar color="danger">
-      <ion-title>End Menu</ion-title>
-    </ion-toolbar>
-  </ion-header>
-  <ion-content>
-    <ion-list>
-      <ion-item>Menu Item</ion-item>
-      <ion-item>Menu Item</ion-item>
-      <ion-item>Menu Item</ion-item>
-      <ion-item>Menu Item</ion-item>
-      <ion-item>Menu Item</ion-item>
-    </ion-list>
-  </ion-content>
-</ion-menu>
-
-
 <ion-content padding>
   <ion-list>
-    <ion-item *ngFor="let buku of listBuku">
-      <ion-grid>
+    <ion-item tappable *ngFor="let buku of listBuku">
+      <ion-grid (click)="toDetail(buku.gambar, buku.judul, buku.pengarang, buku.tahun, buku.pinjam)">
         <ion-row>
           <ion-col>
-            <img class="img" width="80" heigth="80" [src]="buku.gambar">
-        </ion-col>
-        <ion-col>
-            <p text-left>Judul: {{buku.judul}}</p>
-            <p text-left>Pengarang: {{buku.pengarang}}</p>
-            <p text-left>Tahun Terbit: {{buku.tahun}}</p>
-            <p text-left *ngIf="!buku.pinjam; else notShow">Bisa dipinjam</p>
-            <ng-template #notShow><p text-right right>Sudah dipinjam</p></ng-template>
-        </ion-col>
-      </ion-row>
-    </ion-grid>  
-    
-      </ion-item>    
+            <img class="img" width="80" height="80" [src]="buku.gambar">
+          </ion-col>
+          <ion-col>
+              <p text-left>Judul: {{buku.judul}}</p>
+              <p text-left>Pengarang: {{buku.pengarang}}</p>
+              <p text-left>Tahun Terbit: {{buku.tahun}}</p>
+              <p text-left *ngIf="!buku.pinjam; else notShow">Bisa dipinjam</p>
+              <ng-template #notShow><p text-right right>Sudah dipinjam</p></ng-template>
+          </ion-col>
+        </ion-row>
+      </ion-grid>  
+    </ion-item>        
   </ion-list>
 </ion-content>

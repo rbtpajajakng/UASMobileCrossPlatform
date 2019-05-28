@@ -1,7 +1,7 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Contact
+      Buku Yang Dipinjemin
     </ion-title>
     <ion-buttons end>
       <button ion-button icon-only (click)="logout()">
@@ -11,12 +11,18 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content>
+<ion-content padding>
   <ion-list>
-    <ion-list-header>Follow us on Twitter</ion-list-header>
-    <ion-item>
-      <ion-icon name="ionic" item-start></ion-icon>
-      @ionicframework
-    </ion-item>
+    <ion-item tappable *ngFor="let buku of listBuku">
+      <ion-grid (click)="showQr()">
+        <ion-row>
+          <ion-col>
+              <h2 text-left>{{buku.judul}}</h2>
+              <p text-left>dipinjam oleh <strong>{{buku.id}}</strong></p>
+              <p text-left>nanti di balikin tanggal <strong>{{buku.balik}}</strong></p>
+          </ion-col>
+        </ion-row>
+      </ion-grid>  
+    </ion-item>        
   </ion-list>
 </ion-content>
