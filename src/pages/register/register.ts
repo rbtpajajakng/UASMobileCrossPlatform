@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { User } from '../../models/user';
 import firebase from 'firebase';
 import { TabsPage } from '../tabs/tabs';
@@ -23,8 +23,7 @@ export class RegisterPage {
 
   user = {} as User;
 
-  constructor(private afAuth: AngularFireAuth,public navCtrl: NavController, public navParams: NavParams,
-    public alertCtrl :AlertController) {
+  constructor(private afAuth: AngularFireAuth,public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
@@ -42,43 +41,19 @@ export class RegisterPage {
       //this.navCtrl.push(TabsPage);
     //});
 
-    async Register(email: string, password: string, username:string) {
+    async Register(email: string, password: string) {
       try {
         const result = await this.afAuth.auth.createUserWithEmailAndPassword(
          email,
          password
         );
         if (result) {
-          var db = firebase.database();
-          var uid = firebase.auth().currentUser.uid;
-          db.ref("/user/"+uid).set({
-            username: username,
-            email: firebase.auth().currentUser.email
-          }, (error) => {
-            if(error){
-              var alert = this.alertCtrl.create({
-                title: "Error",
-                subTitle: "Maaf Kamu Tidak Terdaftar T_T",
-                buttons: ['OK']
-              });
-              alert.present();
-            }
-          });
           this.navCtrl.push(LoginPage);
         }
       } catch (e) {
-        let alert = this.alertCtrl.create({
-          title: 'Error',
-          subTitle: "Ada yang " + e,
-          buttons: ['OK']
-        });
-        alert.present();
+        console.error(e);
       }
       
-    }
-
-    Cancel(){
-      this.navCtrl.push(LoginPage);
     }
 
 }

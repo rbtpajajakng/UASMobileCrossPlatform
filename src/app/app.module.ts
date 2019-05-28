@@ -1,3 +1,7 @@
+import { QrpopPage } from './../pages/qrpop/qrpop';
+import { BookPage } from './../pages/book/book';
+import { File } from '@ionic-native/file';
+import { ImagePicker } from '@ionic-native/image-picker'
 import { Camera } from '@ionic-native/camera';
 import { LoginPage } from '../pages/login/login';
 import { NgModule, ErrorHandler } from '@angular/core';
@@ -12,6 +16,8 @@ import { TabsPage } from '../pages/tabs/tabs';
 
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 import { NgxQRCodeModule } from 'ngx-qrcode2';
+
+
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -30,14 +36,15 @@ import {AngularFireAuthModule} from 'angularfire2/auth';
     LoginPage,
     RegisterPage,
     TabsPage,
-    
+    BookPage,
+    QrpopPage
   ],
   imports: [
     BrowserModule,
+    NgxQRCodeModule,
     IonicModule.forRoot(MyApp),
     AngularFireModule.initializeApp(Config),
-    AngularFireAuthModule,
-    NgxQRCodeModule
+    AngularFireAuthModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -47,17 +54,19 @@ import {AngularFireAuthModule} from 'angularfire2/auth';
     HomePage,
     LoginPage,
     RegisterPage,
-    TabsPage
+    TabsPage,
+    BookPage,
+    QrpopPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     UserProvider,
+    File,
     BarcodeScanner,
-    Camera,
-    
-   
+    ImagePicker,
+    Camera
   ]
 })
 export class AppModule {}
