@@ -1,7 +1,6 @@
 import { QrpopPage } from './../pages/qrpop/qrpop';
 import { BookPage } from './../pages/book/book';
 import { File } from '@ionic-native/file';
-import { FileChooser } from '@ionic-native/file-chooser'
 import { ImagePicker } from '@ionic-native/image-picker'
 import { Camera } from '@ionic-native/camera';
 import { LoginPage } from '../pages/login/login';
@@ -59,6 +58,8 @@ import {AngularFireAuthModule} from 'angularfire2/auth';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     UserProvider,
+    File,
+    ImagePicker,
     Camera
   ]
 })
