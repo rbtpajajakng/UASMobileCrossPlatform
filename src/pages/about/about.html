@@ -3,6 +3,11 @@
     <ion-title>
       Colections Library
     </ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="logout()">
+        <ion-icon name="log-out"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
@@ -22,8 +27,13 @@
           <ion-datetime displayFormat="YYYY" pickerFormat="YYYY" [(ngModel)]="tahun"></ion-datetime>
         </ion-item>
         <ion-item>
-          <ion-label >Gambar</ion-label>
-          <ion-input type="text" [(ngModel)]="gambar"></ion-input>
+          <button ion-button (click)="openGallery()">
+            <ion-icon name="folder"></ion-icon> File sistem
+          </button>
+          <button ion-button (click)="openCamera()">
+            <ion-icon name="camera"></ion-icon> Kamera
+          </button>
+          <img [src]="gambar">
         </ion-item>
         <div padding>
           <button ion-button block (click)="addBook(judul, pengarang, tahun, gambar)">Tambah Buku</button>

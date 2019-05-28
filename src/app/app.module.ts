@@ -1,7 +1,6 @@
 import { QrpopPage } from './../pages/qrpop/qrpop';
 import { BookPage } from './../pages/book/book';
 import { File } from '@ionic-native/file';
-import { FileChooser } from '@ionic-native/file-chooser'
 import { ImagePicker } from '@ionic-native/image-picker'
 import { Camera } from '@ionic-native/camera';
 import { LoginPage } from '../pages/login/login';
@@ -14,6 +13,10 @@ import { AboutPage } from '../pages/about/about';
 import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
+
+import { BarcodeScanner } from '@ionic-native/barcode-scanner';
+import { NgxQRCodeModule } from 'ngx-qrcode2';
+
 
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -38,6 +41,7 @@ import {AngularFireAuthModule} from 'angularfire2/auth';
   ],
   imports: [
     BrowserModule,
+    NgxQRCodeModule,
     IonicModule.forRoot(MyApp),
     AngularFireModule.initializeApp(Config),
     AngularFireAuthModule
@@ -59,6 +63,9 @@ import {AngularFireAuthModule} from 'angularfire2/auth';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     UserProvider,
+    File,
+    BarcodeScanner,
+    ImagePicker,
     Camera
   ]
 })
