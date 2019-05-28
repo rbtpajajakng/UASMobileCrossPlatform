@@ -1,6 +1,6 @@
 import { BookPage } from './../book/book';
 import { Component } from '@angular/core';
-import { NavController, AlertController, App } from 'ionic-angular';
+import { NavController } from 'ionic-angular';
 import firebase  from 'firebase';
 
 import {LoginPage} from '../login/login'
@@ -13,7 +13,7 @@ export class HomePage {
   // Array buat nampung list-list buku
   public listBuku: Array<any> = [];
 
-  constructor(public navCtrl: NavController, public alertCtrl:AlertController, private app:App) {
+  constructor(public navCtrl: NavController) {
     
   }
 
@@ -33,17 +33,8 @@ export class HomePage {
     });
   }
 
-  logout(){
-    firebase.auth().signOut().then(()=>{
-      this.app.getRootNav().setRoot(LoginPage);
-    }).catch((err)=>{
-      var alert = this.alertCtrl.create({
-        title: "Ups...",
-        subTitle: "Aduh, lagi ngak bisa logout nih! "+err,
-        buttons: ['OK']
-      });
-      alert.present();
-    });
+  Logout(){
+    this.navCtrl.push(LoginPage);
   }
 
   toDetail(gambar, judul, pengarang, tahun, pinjam){

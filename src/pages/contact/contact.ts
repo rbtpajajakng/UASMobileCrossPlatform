@@ -50,5 +50,4 @@ export class ContactPage {
     let popover = this.popoverCtrl.create(QrpopPage, {qr:qr});
     popover.present();
   }
-
 }

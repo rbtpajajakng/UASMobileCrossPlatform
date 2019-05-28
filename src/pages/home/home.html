@@ -1,15 +1,10 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>Home</ion-title>
-    <ion-buttons end>
-      <button ion-button icon-only (click)="logout()">
-        <ion-icon name="log-out"></ion-icon>
-      </button>
-    </ion-buttons>
+    <ion-title>Freedom Library</ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content padding class="background-home">
   <ion-list>
     <ion-item tappable *ngFor="let buku of listBuku">
       <ion-grid (click)="toDetail(buku.gambar, buku.judul, buku.pengarang, buku.tahun, buku.pinjam)">
@@ -26,6 +21,8 @@
           </ion-col>
         </ion-row>
       </ion-grid>  
-    </ion-item>        
+    </ion-item>
   </ion-list>
+
+  
 </ion-content>

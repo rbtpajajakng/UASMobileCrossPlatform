@@ -3,15 +3,24 @@
     <ion-title>
       Buku Yang Dipinjemin
     </ion-title>
-    <ion-buttons end>
-      <button ion-button icon-only (click)="logout()">
-        <ion-icon name="log-out"></ion-icon>
-      </button>
-    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<!-- <ion-content class="background-contact">
+  <ion-card-content>
+    <ion-list>
+      <ion-list-header>Follow us on Twitter</ion-list-header>
+      <ion-item>
+        <ion-icon name="ionic" item-start></ion-icon>
+          @ionicframework
+      </ion-item>
+      <div padding>
+        <button ion-button block (click)= "Logout()">Log out</button>
+      </div>
+    </ion-list>
+  </ion-card-content> --!>
+  
+<ion-content class="background-contact">
   <ion-list>
     <ion-item tappable *ngFor="let buku of listBuku">
       <ion-grid (click)="showQr()">
@@ -25,4 +34,5 @@
       </ion-grid>  
     </ion-item>        
   </ion-list>
+  
 </ion-content>

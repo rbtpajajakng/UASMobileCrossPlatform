@@ -59,9 +59,6 @@ import {AngularFireAuthModule} from 'angularfire2/auth';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     UserProvider,
-    File,
-    FileChooser,
-    ImagePicker,
     Camera
   ]
 })
