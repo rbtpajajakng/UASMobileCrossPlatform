@@ -29,4 +29,7 @@
       </ion-grid>  
     </ion-item>        
   </ion-list>
+  <ion-card *ngIf="createdCode">
+    <ngx-qrcode [qrc-value]="createdCode"></ngx-qrcode>
+  </ion-card>
 </ion-content>
