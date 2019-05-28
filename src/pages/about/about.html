@@ -1,27 +1,33 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Library
+      Colections Library
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content class="background-library">
-  <ion-item>
-    <ion-label >Judul</ion-label>
-    <ion-input type="text" [(ngModel)]="judul"></ion-input>
-  </ion-item>
-  <ion-item>
-    <ion-label >Pengarang</ion-label>
-    <ion-input type="text" [(ngModel)]="pengarang"></ion-input>
-  </ion-item>
-  <ion-item>
-    <ion-label >Tahun Terbit</ion-label>
-    <ion-datetime displayFormat="YYYY" pickerFormat="YYYY" [(ngModel)]="tahun"></ion-datetime>
-  </ion-item>
-  <ion-item>
-    <ion-label >Gambar</ion-label>
-    <ion-input type="text" [(ngModel)]="gambar"></ion-input>
-  </ion-item>
-  <button ion-button block (click)="addBook(judul, pengarang, tahun, gambar)">Tambah Buku</button>
+  <ion-card-content>
+    <ion-list>
+      <ion-item>
+        <ion-label >Judul</ion-label>
+          <ion-input type="text" [(ngModel)]="judul"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label >Pengarang</ion-label>
+          <ion-input type="text" [(ngModel)]="pengarang"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label >Tahun Terbit</ion-label>
+          <ion-datetime displayFormat="YYYY" pickerFormat="YYYY" [(ngModel)]="tahun"></ion-datetime>
+        </ion-item>
+        <ion-item>
+          <ion-label >Gambar</ion-label>
+          <ion-input type="text" [(ngModel)]="gambar"></ion-input>
+        </ion-item>
+        <div padding>
+          <button ion-button block (click)="addBook(judul, pengarang, tahun, gambar)">Tambah Buku</button>
+        </div>
+    </ion-list>
+  </ion-card-content>
 </ion-content>
